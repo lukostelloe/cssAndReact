@@ -1,0 +1,68 @@
+.piano {
+  position: relative;
+  width: 530px;
+  height: 300px;
+  background-color: black;
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgb(44, 44, 44);
+}
+
+.piano_brand {
+  font-size: xx-large;
+  position: absolute;
+  color: yellow;
+  left: 190px;
+  top: 20px;
+}
+
+.piano_keys {
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+}
+
+.piano_white_key {
+  width: 62.5px;
+  height: 200px;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.piano_black_key1 {
+  position: absolute;
+  left: 40px;
+  width: 40px;
+  height: 110px;
+  background-color: black;
+}
+
+.piano_black_key2 {
+  position: absolute;
+  left: 105px;
+  width: 40px;
+  height: 110px;
+  background-color: black;
+}
+
+.piano_black_key3 {
+  position: absolute;
+  left: 230px;
+  width: 40px;
+  height: 110px;
+  background-color: black;
+}
+
+.piano_black_key4 {
+  position: absolute;
+  left: 295px;
+  width: 40px;
+  height: 110px;
+  background-color: black;
+}
+
+.piano_black_key5 {
+  position: absolute;
+  left: 355px;
+  width: 40px;
+  height: 110px;
+  background-color: black;
+}
