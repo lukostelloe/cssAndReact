@@ -15,7 +15,7 @@ function App() {
       <div className="pencils">
         <Pencil color="blue" transform="rotate(45deg)" />
         <Pencil color="red" transform="rotate(-45deg)" />
-        <Pencil color="green" transform="rotate(110deg)" />
+        <Pencil color="green" transform="rotate(-110deg)" />
       </div>
       <div className="appdiv">
         <Calculator />

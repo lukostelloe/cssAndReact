@@ -4,8 +4,37 @@
 }
 
 .pencil {
+  position: relative;
+
   width: 20px;
   height: 300px;
 
   translate: rotate(90deg);
+
+  box-shadow: -2px -2px 2px rgb(71, 71, 71);
+}
+
+.pencil_tip {
+  position: absolute;
+
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 10px 35px 10px;
+  border-color: transparent transparent #ecd1a8 transparent;
+
+  bottom: 300px;
+}
+
+.pencil_shadow {
+  position: absolute;
+
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 10px 35px 10px;
+  border-color: transparent transparent #3f3f3f transparent;
+
+  bottom: 300px;
+  right: 2px;
 }

@@ -8,7 +8,10 @@ function Pencil(props) {
       <div
         className="pencil"
         style={{ backgroundColor: props.color, transform: props.transform }}
-      ></div>
+      >
+        <div className="pencil_shadow"></div>
+        <div className="pencil_tip"></div>
+      </div>
     </div>
   );
 }
