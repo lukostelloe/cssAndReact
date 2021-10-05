@@ -1,0 +1,11 @@
+.pencil_container {
+  display: flex;
+  flex-direction: row;
+}
+
+.pencil {
+  width: 20px;
+  height: 300px;
+
+  translate: rotate(90deg);
+}

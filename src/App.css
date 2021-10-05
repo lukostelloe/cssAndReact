@@ -24,3 +24,10 @@ button {
   display: flex;
   flex-direction: row;
 }
+
+.pencils {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0 auto;
+}

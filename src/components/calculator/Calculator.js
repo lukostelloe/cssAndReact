@@ -8,7 +8,7 @@ function Calculator() {
         <button className="calculator_clear">C</button>
         <div className="calculator_screen">
           <div className="calculator_screen_size">
-            <div classNamwe="calculator_screen_info">2+2=5</div>
+            <div className="calculator_screen_info">2+2=5</div>
           </div>
         </div>
       </div>

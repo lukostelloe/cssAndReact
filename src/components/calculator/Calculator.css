@@ -1,9 +1,10 @@
 .calculator {
   transform: scale(0.7);
+
   width: 600px;
   height: 580px;
   margin-top: 100px;
-  margin: 100px;
+
   background: linear-gradient(
     to bottom right,
     rgb(0, 92, 121),
@@ -63,7 +64,7 @@
 .calculator_screen_info {
   width: 100px;
   height: 100px;
-  background-color: yellow;
+
   font-family: "Courier New", Courier, monospace;
   font-size: xx-large;
 }
