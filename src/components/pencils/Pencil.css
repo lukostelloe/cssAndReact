@@ -12,6 +12,8 @@
   translate: rotate(90deg);
 
   box-shadow: -2px -2px 2px rgb(71, 71, 71);
+
+  margin: 0 auto;
 }
 
 .pencil_tip {

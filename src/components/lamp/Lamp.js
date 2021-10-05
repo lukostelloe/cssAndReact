@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import clsx from "clsx";
 import "./Lamp.css";
 
 function Lamp() {
@@ -12,27 +13,21 @@ function Lamp() {
     }
   }
 
+  const lampClasses = clsx(
+    lightOn ? "lamp_base--on" : "lamp_base--off",
+    "lamp_base"
+  );
+
   return (
     <div>
-      {lightOn ? (
-        <div className="lamp">
-          <div className="lamp_stand"></div>
-          <div className="lamp_arm"></div>
-          <div className="lamp_baseOn">
-            <div className="lamp_head"></div>
-            <button className="lamp_button" onClick={toggleTurnOnOff}></button>
-          </div>
+      <div className="lamp">
+        <div className="lamp_stand"></div>
+        <div className="lamp_arm"></div>
+        <div className={lampClasses}>
+          <div className="lamp_head"></div>
+          <button className="lamp_button" onClick={toggleTurnOnOff}></button>
         </div>
-      ) : (
-        <div className="lamp">
-          <div className="lamp_stand"></div>
-          <div className="lamp_arm"></div>
-          <div className="lamp_baseOff">
-            <div className="lamp_head"></div>
-            <button className="lamp_button" onClick={toggleTurnOnOff}></button>
-          </div>
-        </div>
-      )}
+      </div>
     </div>
   );
 }

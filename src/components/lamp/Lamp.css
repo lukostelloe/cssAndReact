@@ -43,7 +43,7 @@
   border-radius: 1px rgb(46, 46, 46);
 }
 
-.lamp_baseOn {
+.lamp_base {
   position: absolute;
 
   width: 280px;
@@ -53,26 +53,16 @@
 
   left: 200px;
   top: 100px;
-
-  box-shadow: -200px 170px 300px 300px rgba(242, 255, 66, 0.5);
 
   z-index: 1;
 }
 
-.lamp_baseOff {
-  position: absolute;
+.lamp_base--on {
+  box-shadow: -200px 170px 300px 300px rgba(242, 255, 66, 0.5);
+}
 
-  left: 200px;
-  top: 100px;
-
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  background-color: rgb(195, 195, 195);
-
+.lamp_base--off {
   box-shadow: 6px 2px 1px rgb(117, 117, 117);
-
-  z-index: 1;
 }
 
 .lamp_button {
