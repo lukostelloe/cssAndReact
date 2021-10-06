@@ -1,7 +1,7 @@
 .leaves_four {
   display: flex;
-  flex-direction: row;
-  justify-content: left;
+  position: relative;
+  left: -300px;
 }
 
 .leafspine {

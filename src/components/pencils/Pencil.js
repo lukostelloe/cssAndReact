@@ -2,7 +2,6 @@ import React from "react";
 import "./Pencil.css";
 
 function Pencil(props) {
-  console.log(props);
   return (
     <div className="pencil_container">
       <div
