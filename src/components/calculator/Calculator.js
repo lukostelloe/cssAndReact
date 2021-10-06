@@ -2,30 +2,35 @@ import { React, useState } from "react";
 import "./Calculator.css";
 
 function Calculator() {
-  const [numberArray, setNumberArray] = useState([]);
+  const [numberArray, setNumberArray] = useState([0]);
+
+  console.log(numberArray);
 
   function onDisplayChange(e) {
-    console.log(e.target.name);
-    setNumberArray([...numberArray, e.target.name]);
-    console.log(numberArray);
+    if (numberArray == 0) {
+      setNumberArray([e.target.name]);
+    } else {
+      setNumberArray([...numberArray, e.target.name]);
+    }
   }
 
-  // onDisplay(e) {
-  //   setNumberArray([...numberArray, e.target.value]);
-  // }
+  function clearButton() {
+    setNumberArray([0]);
+  }
+
+  function displayResult() {
+    console.log("result");
+  }
 
   return (
     <div className="calculator">
       <div className="calculator_top">
-        <button className="calculator_clear">C</button>
+        <button className="calculator_clear" onClick={clearButton}>
+          C
+        </button>
         <div className="calculator_screen">
           <div className="calculator_screen_size">
-            <div className="calculator_screen_info">
-              {/* {numberArray.map((m) => (
-                <div>{m}</div>
-              ))} */}
-              {numberArray}
-            </div>
+            <div className="calculator_screen_info">{numberArray}</div>
           </div>
         </div>
       </div>
@@ -128,11 +133,7 @@ function Calculator() {
         >
           .
         </button>
-        <button
-          className="calculator_button"
-          name="="
-          onClick={onDisplayChange}
-        >
+        <button className="calculator_button" name="=" onClick={displayResult}>
           =
         </button>
         <button
