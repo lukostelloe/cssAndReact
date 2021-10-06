@@ -3,6 +3,10 @@ import "./Calculator.css";
 
 function Calculator() {
   const [numberArray, setNumberArray] = useState([0]);
+  const [plus, setPlus] = useState([]);
+  const [minus, setMinus] = useState([]);
+  const [multiply, setMultiply] = useState([]);
+  const [divide, setDivide] = useState([]);
 
   console.log(numberArray);
 
@@ -14,12 +18,48 @@ function Calculator() {
     }
   }
 
-  function clearButton() {
-    setNumberArray([0]);
+  function decimalButton(e) {
+    setNumberArray([...numberArray, e.target.name]);
   }
 
-  function displayResult() {
+  function equalsButton() {
     console.log("result");
+  }
+
+  function clearButton() {
+    setNumberArray([0]);
+    setPlus([]);
+    setMinus([]);
+    setMultiply([]);
+    setDivide([]);
+  }
+
+  function plusButton() {
+    setPlus("+");
+    setMinus([]);
+    setMultiply([]);
+    setDivide([]);
+  }
+
+  function minusButton() {
+    setPlus([]);
+    setMinus(["-"]);
+    setMultiply([]);
+    setDivide([]);
+  }
+
+  function multiplyButton() {
+    setPlus([]);
+    setMinus([]);
+    setMultiply(["x"]);
+    setDivide([]);
+  }
+
+  function divideButton() {
+    setPlus([]);
+    setMinus([]);
+    setMultiply([]);
+    setDivide(["÷"]);
   }
 
   return (
@@ -30,7 +70,13 @@ function Calculator() {
         </button>
         <div className="calculator_screen">
           <div className="calculator_screen_size">
-            <div className="calculator_screen_info">{numberArray}</div>
+            <div className="calculator_screen_info">
+              <div>{numberArray}</div>
+              <div>{plus}</div>
+              <div>{minus}</div>
+              <div>{multiply}</div>
+              <div>{divide}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -56,11 +102,7 @@ function Calculator() {
         >
           9
         </button>
-        <button
-          className="calculator_button"
-          name="+"
-          onClick={onDisplayChange}
-        >
+        <button className="calculator_button" name="+" onClick={plusButton}>
           +
         </button>
         <button
@@ -84,11 +126,7 @@ function Calculator() {
         >
           6
         </button>
-        <button
-          className="calculator_button"
-          name="-"
-          onClick={onDisplayChange}
-        >
+        <button className="calculator_button" name="-" onClick={minusButton}>
           -
         </button>
         <button
@@ -112,11 +150,7 @@ function Calculator() {
         >
           3
         </button>
-        <button
-          className="calculator_button"
-          name="÷"
-          onClick={onDisplayChange}
-        >
+        <button className="calculator_button" name="÷" onClick={divideButton}>
           ÷
         </button>
         <button
@@ -126,21 +160,13 @@ function Calculator() {
         >
           0
         </button>
-        <button
-          className="calculator_button"
-          name="."
-          onClick={onDisplayChange}
-        >
+        <button className="calculator_button" name="." onClick={decimalButton}>
           .
         </button>
-        <button className="calculator_button" name="=" onClick={displayResult}>
+        <button className="calculator_button" name="=" onClick={equalsButton}>
           =
         </button>
-        <button
-          className="calculator_button"
-          name="x"
-          onClick={onDisplayChange}
-        >
+        <button className="calculator_button" name="x" onClick={multiplyButton}>
           x
         </button>
       </div>
