@@ -25,7 +25,9 @@ function Lamp() {
         <div className="lamp_arm"></div>
         <div className={lampClasses}>
           <div className="lamp_head"></div>
-          <button className="lamp_button" onClick={toggleTurnOnOff}></button>
+          <button className="lamp_button" onClick={toggleTurnOnOff}>
+            I/O
+          </button>
         </div>
       </div>
     </div>

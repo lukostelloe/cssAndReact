@@ -9,6 +9,7 @@
   border-radius: 50%;
 
   background-color: rgb(163, 163, 163);
+  box-shadow: inset -5px 8px 10px 20px rgb(128, 128, 128);
 
   left: 300px;
   top: 20px;
@@ -18,11 +19,13 @@
   position: absolute;
   width: 60px;
   height: 200px;
+
   background-color: rgb(46, 46, 46);
+  box-shadow: inset -1px 7px 2px 3px rgb(65, 65, 65);
 
   border-radius: 20%;
 
-  left: 400px;
+  left: 410px;
   top: 100px;
 
   transform: rotate(60deg);
@@ -31,16 +34,14 @@
 .lamp_head {
   position: absolute;
 
+  left: 60px;
+  top: 60px;
+
   width: 160px;
   height: 160px;
-
   border-radius: 50%;
-  background-color: rgb(163, 163, 163);
 
-  top: 50px;
-  right: 50px;
-
-  border-radius: 1px rgb(46, 46, 46);
+  box-shadow: inset 5px -8px 7px 20px rgb(128, 128, 128);
 }
 
 .lamp_base {
@@ -51,6 +52,8 @@
   border-radius: 50%;
   background-color: rgb(195, 195, 195);
 
+  box-shadow: inset 5px -8px 10px 20px rgb(0, 0, 0);
+
   left: 200px;
   top: 100px;
 
@@ -58,11 +61,12 @@
 }
 
 .lamp_base--on {
-  box-shadow: -200px 170px 300px 300px rgba(242, 255, 66, 0.5);
+  box-shadow: -200px 170px 300px 300px rgba(242, 255, 66, 0.5),
+    inset 3px -3px 40px 20px rgb(102, 102, 102);
 }
 
 .lamp_base--off {
-  box-shadow: 6px 2px 1px rgb(117, 117, 117);
+  box-shadow: inset 3px -3px 40px 20px rgb(102, 102, 102);
 }
 
 .lamp_button {
