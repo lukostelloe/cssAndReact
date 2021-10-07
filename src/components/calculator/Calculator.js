@@ -3,63 +3,116 @@ import "./Calculator.css";
 
 function Calculator() {
   const [numberArray, setNumberArray] = useState([0]);
+  const [nextNumberArray, setNextNumberArray] = useState([]);
   const [plus, setPlus] = useState([]);
   const [minus, setMinus] = useState([]);
   const [multiply, setMultiply] = useState([]);
   const [divide, setDivide] = useState([]);
+  const [result, setResult] = useState([]);
 
   console.log(numberArray);
 
   function onDisplayChange(e) {
-    if (numberArray == 0) {
+    if (numberArray == 0 && nextNumberArray == 0) {
       setNumberArray([e.target.name]);
     } else {
       setNumberArray([...numberArray, e.target.name]);
+    }
+
+    if (
+      plus.length > 0 ||
+      minus.length > 0 ||
+      multiply.length > 0 ||
+      divide.length > 0
+    ) {
+      setNextNumberArray([...nextNumberArray, e.target.name]);
+      setNumberArray([...numberArray]);
     }
   }
 
   function decimalButton(e) {
     setNumberArray([...numberArray, e.target.name]);
+
+    if (numberArray.includes(".")) {
+      setNumberArray([...numberArray]);
+    }
+
+    if (
+      plus.length > 0 ||
+      minus.length > 0 ||
+      multiply.length > 0 ||
+      divide.length > 0
+    ) {
+      setNextNumberArray([...nextNumberArray, e.target.name]);
+    }
+
+    if (nextNumberArray.includes(".")) {
+      setNextNumberArray([...nextNumberArray]);
+    }
   }
 
   function equalsButton() {
-    console.log("result");
+    setNumberArray([]);
+    setNextNumberArray([]);
+    setPlus([]);
+    setMinus([]);
+    setMultiply([]);
+    setDivide([]);
+    setResult("result");
   }
 
   function clearButton() {
     setNumberArray([0]);
+    setNextNumberArray([]);
     setPlus([]);
     setMinus([]);
     setMultiply([]);
     setDivide([]);
+    setResult([]);
   }
 
   function plusButton() {
-    setPlus("+");
-    setMinus([]);
-    setMultiply([]);
-    setDivide([]);
+    if (nextNumberArray == 0) {
+      setPlus("+");
+      setMinus([]);
+      setMultiply([]);
+      setDivide([]);
+    } else {
+      setPlus("+");
+    }
   }
 
   function minusButton() {
-    setPlus([]);
-    setMinus(["-"]);
-    setMultiply([]);
-    setDivide([]);
+    if (nextNumberArray == 0) {
+      setPlus([]);
+      setMinus(["-"]);
+      setMultiply([]);
+      setDivide([]);
+    } else {
+      setMinus("-");
+    }
   }
 
   function multiplyButton() {
-    setPlus([]);
-    setMinus([]);
-    setMultiply(["x"]);
-    setDivide([]);
+    if (nextNumberArray == 0) {
+      setPlus([]);
+      setMinus([]);
+      setMultiply("x");
+      setDivide([]);
+    } else {
+      setMultiply("x");
+    }
   }
 
   function divideButton() {
-    setPlus([]);
-    setMinus([]);
-    setMultiply([]);
-    setDivide(["÷"]);
+    if (nextNumberArray == 0) {
+      setPlus([]);
+      setMinus([]);
+      setMultiply([]);
+      setDivide("÷");
+    } else {
+      setDivide("÷");
+    }
   }
 
   return (
@@ -76,6 +129,8 @@ function Calculator() {
               <div>{minus}</div>
               <div>{multiply}</div>
               <div>{divide}</div>
+              <div>{nextNumberArray}</div>
+              <div>{result}</div>
             </div>
           </div>
         </div>
