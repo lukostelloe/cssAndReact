@@ -2,6 +2,8 @@ import { React, useState } from "react";
 import "./Calculator.css";
 
 function Calculator() {
+  const [displayArray, setDisplayArray] = useState([]);
+  const [nextDisplayArray, setNextDisplayArray] = useState([]);
   const [numberArray, setNumberArray] = useState([0]);
   const [nextNumberArray, setNextNumberArray] = useState([]);
   const [plus, setPlus] = useState([]);
@@ -10,13 +12,19 @@ function Calculator() {
   const [divide, setDivide] = useState([]);
   const [result, setResult] = useState([]);
 
-  console.log(numberArray);
-
+  //INPUT FOR NUMBERS
   function onDisplayChange(e) {
-    if (numberArray == 0 && nextNumberArray == 0) {
+    if (numberArray[0] === 0 && nextNumberArray === 0) {
+      setDisplayArray([e.target.name]);
       setNumberArray([e.target.name]);
+
+      console.log(displayArray);
+      console.log(numberArray);
     } else {
+      setDisplayArray([...displayArray, e.target.name]);
       setNumberArray([...numberArray, e.target.name]);
+      console.log(displayArray);
+      console.log(numberArray);
     }
 
     if (
@@ -25,11 +33,15 @@ function Calculator() {
       multiply.length > 0 ||
       divide.length > 0
     ) {
+      setNextDisplayArray([...nextDisplayArray, e.target.name]);
       setNextNumberArray([...nextNumberArray, e.target.name]);
+
+      setDisplayArray([...displayArray]);
       setNumberArray([...numberArray]);
     }
   }
 
+  //DECIMAL BUTTON
   function decimalButton(e) {
     setNumberArray([...numberArray, e.target.name]);
 
@@ -57,7 +69,10 @@ function Calculator() {
     }
   }
 
+  //EQUALS BUTTON
   function equalsButton() {
+    setDisplayArray([]);
+    setNextDisplayArray([]);
     setNumberArray([]);
     setNextNumberArray([]);
     setPlus([]);
@@ -65,18 +80,62 @@ function Calculator() {
     setMultiply([]);
     setDivide([]);
     setResult("result");
+
+    //CREATE EMPTY ARRAY THEN CHANGE STRINGS OF ARRAY TO NUMBERS
+    var numberArrayInt = [];
+    var nextNumberArrayInt = [];
+
+    for (var i = 0; i < numberArray.length; i++) {
+      numberArrayInt.push(parseInt(numberArray[i]));
+    }
+
+    for (var m = 0; m < nextNumberArray.length; m++) {
+      nextNumberArrayInt.push(parseInt(nextNumberArray[m]));
+    }
+
+    //ADD UP THE VALUES OF THE ARRAY
+    let sum1 = 0;
+
+    for (let i = 0; i < numberArrayInt.length; i++) {
+      sum1 += numberArrayInt[i];
+    }
+    debugger;
+    console.log(sum1);
+
+    let sum2 = 0;
+
+    for (let i = 0; i < nextNumberArrayInt.length; i++) {
+      sum2 += nextNumberArrayInt[i];
+    }
+    console.log(sum2);
+
+    if (plus.length > 0) {
+      setResult([sum1 + sum2]);
+    }
   }
 
+  //FUNCTION FOR EQUALSBUTTON TO BE USED LATER
+  // function calculate(num1, operator, num2) {
+  //   if (operator === "+") {
+  //     return num1 + num2;
+  //   }
+  // }
+
+  //CLEAR BUTTON
   function clearButton() {
+    setDisplayArray([0]);
+    setNextDisplayArray([]);
     setNumberArray([0]);
     setNextNumberArray([]);
     setPlus([]);
+
     setMinus([]);
     setMultiply([]);
     setDivide([]);
     setResult([]);
   }
 
+  //PLUS BUTTON
   function plusButton() {
     if (nextNumberArray == 0) {
       setPlus("+");
@@ -88,6 +147,7 @@ function Calculator() {
     }
   }
 
+  //MINUS BUTTON
   function minusButton() {
     if (nextNumberArray == 0) {
       setPlus([]);
@@ -99,6 +159,7 @@ function Calculator() {
     }
   }
 
+  //MULTIPLY BUTTON
   function multiplyButton() {
     if (nextNumberArray == 0) {
       setPlus([]);
@@ -110,6 +171,7 @@ function Calculator() {
     }
   }
 
+  //DIVIDEBUTTON
   function divideButton() {
     if (nextNumberArray == 0) {
       setPlus([]);
@@ -136,6 +198,7 @@ function Calculator() {
               <div>{multiply}</div>
               <div>{divide}</div>
               <div>{nextNumberArray}</div>
+
               <div>{result}</div>
             </div>
           </div>
