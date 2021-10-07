@@ -33,7 +33,13 @@ function Calculator() {
   function decimalButton(e) {
     setNumberArray([...numberArray, e.target.name]);
 
-    if (numberArray.includes(".")) {
+    if (
+      numberArray.includes(".") ||
+      plus.length > 0 ||
+      minus.length > 0 ||
+      multiply.length > 0 ||
+      divide.length > 0
+    ) {
       setNumberArray([...numberArray]);
     }
 
