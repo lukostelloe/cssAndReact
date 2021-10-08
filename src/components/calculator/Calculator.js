@@ -60,13 +60,6 @@ function Calculator() {
 
   //EQUALS BUTTON
   function equalsButton() {
-    setNumberArray([]);
-    setNextNumberArray([]);
-    setPlus([]);
-    setMinus([]);
-    setMultiply([]);
-    setDivide([]);
-
     if (plus.length > 0) {
       setOperator("+");
     } else if (minus.length > 0) {
@@ -79,7 +72,6 @@ function Calculator() {
 
     console.log(operator);
 
-    //CHANGE NUMBER ARRAY TO NUMBERS
     var num1 = parseFloat(numberArray.join(""));
     console.log(num1);
 
@@ -87,13 +79,13 @@ function Calculator() {
     console.log(num2);
 
     if (operator === "+") {
-      setResult(num1 + num2);
+      setResult((num1 + num2).toFixed(2));
     } else if (operator === "-") {
-      setResult(num1 - num2);
+      setResult((num1 - num2).toFixed(2));
     } else if (operator === "x") {
-      setResult(num1 * num2);
+      setResult((num1 * num2).toFixed(2));
     } else if (operator === "÷") {
-      setResult(num1 / num2);
+      setResult((num1 / num2).toFixed(2));
     }
   }
 
@@ -166,14 +158,17 @@ function Calculator() {
         <div className="calculator_screen">
           <div className="calculator_screen_size">
             <div className="calculator_screen_info">
-              <div>{numberArray}</div>
-              <div>{plus}</div>
-              <div>{minus}</div>
-              <div>{multiply}</div>
-              <div>{divide}</div>
-              <div>{nextNumberArray}</div>
-
-              <div>{result}</div>
+              <div className="calculator_screen_calculations">
+                <div>{numberArray}</div>
+                <div>{plus}</div>
+                <div>{minus}</div>
+                <div>{multiply}</div>
+                <div>{divide}</div>
+                <div>{nextNumberArray}</div>
+              </div>
+              <div className="calculator_screen_result">
+                <div>{result}</div>
+              </div>
             </div>
           </div>
         </div>

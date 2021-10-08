@@ -64,16 +64,23 @@
 
 .calculator_screen_info {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 
-  justify-content: right;
-  align-items: right;
+  justify-content: left;
+  align-items: left;
 
   width: 300px;
   height: 117px;
+}
 
-  font-family: "Courier New", Courier, monospace;
-  font-size: xx-large;
+.calculator_screen_calculations {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: right;
+  flex-wrap: wrap;
+
+  font-size: 30px;
 }
 
 .calculator_buttons {
