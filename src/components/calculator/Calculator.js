@@ -79,13 +79,13 @@ function Calculator() {
     console.log(num2);
 
     if (operator === "+") {
-      setResult((num1 + num2).toFixed(2));
+      setResult(Math.round((num1 + num2) * 100) / 100);
     } else if (operator === "-") {
-      setResult((num1 - num2).toFixed(2));
+      setResult(Math.round((num1 - num2) * 100) / 100);
     } else if (operator === "x") {
-      setResult((num1 * num2).toFixed(2));
+      setResult(Math.round(num1 * num2 * 100) / 100);
     } else if (operator === "÷") {
-      setResult((num1 / num2).toFixed(2));
+      setResult(Math.round((num1 / num2) * 100) / 100);
     }
   }
 
